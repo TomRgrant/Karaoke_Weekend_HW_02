@@ -9,5 +9,10 @@ class TestSong(unittest.TestCase):
         expected = "The Drug In Me Is You"
         actual = self.song.title
         self.assertEqual(expected, actual)
+    
+    def test_has_artist(self):
+        expected = "Falling In Reverse"
+        actual = self.song.artist
+        self.assertEqual(expected, actual)
 
 
