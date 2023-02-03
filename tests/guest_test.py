@@ -6,7 +6,12 @@ class TestGuest(unittest.TestCase):
     def setUp(self):
         self.guest = Guest("James", "Corden", 50.00, Song("Let It Be", " Beatles"))
 
-    def test_has_name(self):
+    def test_has_first_name(self):
         expected = "James"
         actual = self.guest.first_name
+        self.assertEqual(expected, actual)
+
+    def test_has_last_name(self):
+        expected = "Corden"
+        actual = self.guest.last_name
         self.assertEqual(expected, actual)
