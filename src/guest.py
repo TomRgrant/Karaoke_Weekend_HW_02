@@ -4,3 +4,7 @@ class Guest:
         self.last_name = last_name
         self.wallet = wallet
         self.fav_song = fav_song, fav_song_artist
+
+    def pay_entry_fee(self, entry_fee):
+        if self.wallet >= entry_fee:
+            self.wallet -= entry_fee

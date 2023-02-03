@@ -1,5 +1,6 @@
 import unittest
 from src.guest import Guest
+from src.room import Room
 from src.song import Song
 
 class TestGuest(unittest.TestCase):
@@ -24,4 +25,11 @@ class TestGuest(unittest.TestCase):
     def test_favourite_song(self):
         expected = "Let It Be", "Beatles"
         actual = self.guest.fav_song
+        self.assertEqual(expected, actual)
+
+    def test_pay_entry_fee__sufficient_funds(self):
+        entry_fee = 3
+        self.guest.pay_entry_fee(entry_fee)
+        expected = 47.00
+        actual = self.guest.wallet
         self.assertEqual(expected, actual)
