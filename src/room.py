@@ -1,3 +1,3 @@
 class Room:
-    def __init__(self):
-        pass
+    def __init__(self, room_num, total_pop, entry_fee):
+        self.room_num = room_num
