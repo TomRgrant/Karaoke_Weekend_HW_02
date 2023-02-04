@@ -5,7 +5,7 @@ from src.song import Song
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
-        self.guest = Guest("James", "Corden", 50.00, "Let It Be", "Beatles")
+        self.guest = Guest("James", "Corden", 50.00, {"title": "Let It Be", "artist": "Beatles"})
 
     def test_has_first_name(self):
         expected = "James"
@@ -23,7 +23,7 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_favourite_song(self):
-        expected = "Let It Be", "Beatles"
+        expected = {"title": "Let It Be", "artist": "Beatles"}
         actual = self.guest.fav_song
         self.assertEqual(expected, actual)
 
@@ -35,7 +35,7 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_pay_entry_fee__insufficient_funds(self):
-        self.guest_1 = Guest("Loid", "Forger", 4.00, "Mixed Nuts", "Official Hige Dandism")
+        self.guest_1 = Guest("Loid", "Forger", 4.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
         entry_fee = 5.00
         expected = "Insufficient funds"
         actual = self.guest_1.pay_entry_fee(entry_fee)
@@ -43,7 +43,7 @@ class TestGuest(unittest.TestCase):
 
     def test_playing_favourite_song(self):
         self.room = Room(9, 10,5)
-        self.room.current_song = "Let It Be", "Beatles"
+        self.room.current_song = {"title": "Let It Be", "artist": "Beatles"}
         expected = "Whoo!"
         actual = self.guest.fav_song_playing(self.room.current_song)
         self.assertEqual(expected, actual)

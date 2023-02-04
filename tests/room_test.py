@@ -22,15 +22,15 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_add_guest_increase_room_population(self):
-        self.guest = Guest("Frank", "Joel", 20.00, "Blame It On Me", "George Ezra")
+        self.guest = Guest("Frank", "Joel", 20.00, {"title": "Blame It On Me", "title": "George Ezra"})
         self.room.increase_room_pop(self.guest.first_name)
         expected = 1
         actual = len(self.room.room_pop)
         self.assertEqual(expected, actual)
 
     def test_add_guest_increase_room_population__room_full(self):
-        self.guest_1 = Guest("Paul", "Kerona", 40.00, "Stand By Me", "Oasis")
-        self.guest_2 = Guest("Mark", "Peters", 10.00, "Dance Monkey", "Tones And I")
+        self.guest_1 = Guest("Paul", "Kerona", 40.00, {"title": "Stand By Me", "artist": "Oasis"})
+        self.guest_2 = Guest("Mark", "Peters", 10.00, {"title": "Dance Monkey", "artist": "Tones And I"})
         self.room_1 = Room(7, 1, 3.00)
         self.room.increase_room_pop(self.guest_1.first_name)
         expected = "Room is full"
@@ -45,7 +45,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_remove_guest_from_room(self):
-        self.guest = Guest("Frank", "Joel", 20.00, "Blame It On Me", "George Ezra")
+        self.guest = Guest("Frank", "Joel", 20.00, {"title": "Blame It On Me", "artist": "George Ezra"})
         self.room.increase_room_pop(self.guest.first_name)
         self.room.remove_guest_from_room(self.guest.first_name)
         expected = 0
