@@ -38,9 +38,9 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_play_song(self):
-        song_to_play = 'Im Not A Vampire', 'Falling In Reverse'
+        song_to_play = {"title": 'Im Not A Vampire', "artist": 'Falling In Reverse'}
         self.room.play_song(song_to_play)
-        expected = 'Im Not A Vampire', 'Falling In Reverse'
+        expected = {"title": 'Im Not A Vampire', "artist": 'Falling In Reverse'}
         actual = self.room.song_queue[0]
         self.assertEqual(expected, actual)
 
@@ -51,3 +51,13 @@ class TestRoom(unittest.TestCase):
         expected = 0
         actual = len(self.room.room_pop)
         self.assertEqual(expected, actual)
+
+    def test_room_multipe_songs_in_queue(self):
+        song_to_play_1 = {"title": 'Im Not A Vampire', "artist": 'Falling In Reverse'}
+        song_to_play_2 = {"title": "Blame It On Me", "artist": "George Ezra"}
+        song_to_play_3 = {"title": "Dance Monkey", "artist": "Tones And I"}
+        self.room.play_song(song_to_play_1)
+        self.room.play_song(song_to_play_2)
+        self.room.play_song(song_to_play_3)
+        expected = 3
+        actual = len(self.room.song_queue)
