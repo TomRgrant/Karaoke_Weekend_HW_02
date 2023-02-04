@@ -22,3 +22,6 @@ class Room:
 
     def next_song_in_queue(self):
         return self.song_queue[1]
+
+    def sell_drink(self, price):
+        self.tab += price
