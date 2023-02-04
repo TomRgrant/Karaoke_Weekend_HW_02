@@ -8,3 +8,6 @@ class Room:
     def increase_room_pop(self, guest):
         if len(self.room_pop) < self.total_pop:
             self.room_pop.append(guest)
+            return len(self.room_pop)
+        else:
+            return "Room is full"
