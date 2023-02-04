@@ -41,7 +41,7 @@ class TestRoom(unittest.TestCase):
         song_to_play = 'Im Not A Vampire', 'Falling In Reverse'
         self.room.play_song(song_to_play)
         expected = 'Im Not A Vampire', 'Falling In Reverse'
-        actual = self.room.current_song
+        actual = self.room.song_queue[0]
         self.assertEqual(expected, actual)
 
     def test_remove_guest_from_room(self):
