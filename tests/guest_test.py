@@ -40,3 +40,10 @@ class TestGuest(unittest.TestCase):
         expected = "Insufficient funds"
         actual = self.guest_1.pay_entry_fee(entry_fee)
         self.assertEqual(expected, actual)
+
+    def test_playing_favourite_song(self):
+        self.room = Room(9, 10,5)
+        self.room.current_song = "Let It Be", "Beatles"
+        expected = "Whoo!"
+        actual = self.guest.fav_song_playing(self.room.current_song)
+        self.assertEqual(expected, actual)
