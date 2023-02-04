@@ -49,9 +49,13 @@ class TestGuest(unittest.TestCase):
         actual = self.guest.fav_song_playing(self.room.current_song)
         self.assertEqual(expected, actual)
 
-    # def test_buy_drink(self):
-    #     self.guest = Guest("Loid", "Forger", 50.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
-    #     self.guest.reduce_wallet(pub.drinks["fizzy"]["price"])
-    #     expected = 47.00
-    #     actual = self.wallet
-    #     self.assertEqual(expected, actual)
+    def test_buy_drink(self):
+        self.guest = Guest("Loid", "Forger", 50.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
+        self.pub = Pub("Boar Hat", {"pint": {"price": 4.00},
+                                    "cocktail": {"price": 7.00},
+                                    "fizzy": {"price": 3.00},
+                                    "wine": {"price": 6.00}} )
+        self.guest.buy_drink(self.pub.drinks["fizzy"]["price"])
+        expected = 47.00
+        actual = self.guest.wallet
+        self.assertEqual(expected, actual)

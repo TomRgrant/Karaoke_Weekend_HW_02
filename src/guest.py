@@ -15,5 +15,8 @@ class Guest:
         if current_song == self.fav_song:
             return "Whoo!"
 
-    def reduce_wallet(self):
-        pass
+    def reduce_wallet(self, price):
+        self.wallet -= price
+
+    def buy_drink(self, price):
+        self.reduce_wallet(price)
