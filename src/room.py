@@ -4,6 +4,7 @@ class Room:
         self.total_pop = total_pop
         self.entry_fee = entry_fee
         self.room_pop = []
+        self.current_song = ''
 
     def increase_room_pop(self, guest):
         if len(self.room_pop) < self.total_pop:
@@ -11,3 +12,6 @@ class Room:
             return len(self.room_pop)
         else:
             return "Room is full"
+
+    def play_song(self, song_to_play):
+        self.current_song = song_to_play

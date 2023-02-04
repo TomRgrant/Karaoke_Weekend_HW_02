@@ -36,3 +36,10 @@ class TestRoom(unittest.TestCase):
         expected = "Room is full"
         actual = self.room.increase_room_pop(self.guest_2.first_name)
         self.assertEqual(expected, actual)
+
+    def test_play_song(self):
+        song_to_play = 'Im Not A Vampire', 'Falling In Reverse'
+        self.room.play_song(song_to_play)
+        expected = 'Im Not A Vampire', 'Falling In Reverse'
+        actual = self.room.current_song
+        self.assertEqual(expected, actual)
