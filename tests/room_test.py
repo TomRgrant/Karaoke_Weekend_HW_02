@@ -79,7 +79,14 @@ class TestRoom(unittest.TestCase):
                                     "cocktail": {"price": 7.00},
                                     "fizzy": {"price": 3.00},
                                     "wine": {"price": 6.00}} )
-        self.room.sell_drink(self.pub.drinks["fizzy"]["price"])
+        self.room.increase_tab(self.pub.drinks["fizzy"]["price"])
         expected = 3.00
+        actual = self.room.tab
+        self.assertEqual(expected, actual)
+
+    def test_pay_entry_fee(self):
+        entry_fee = 5
+        self.room.increase_tab(entry_fee)
+        expected = 5
         actual = self.room.tab
         self.assertEqual(expected, actual)
