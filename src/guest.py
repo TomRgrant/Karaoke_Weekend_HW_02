@@ -8,3 +8,5 @@ class Guest:
     def pay_entry_fee(self, entry_fee):
         if self.wallet >= entry_fee:
             self.wallet -= entry_fee
+        else:
+            return "Insufficient funds"

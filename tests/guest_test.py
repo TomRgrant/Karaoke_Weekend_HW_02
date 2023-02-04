@@ -28,8 +28,15 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_pay_entry_fee__sufficient_funds(self):
-        entry_fee = 3
+        entry_fee = 3.00
         self.guest.pay_entry_fee(entry_fee)
         expected = 47.00
         actual = self.guest.wallet
+        self.assertEqual(expected, actual)
+
+    def test_pay_entry_fee__insufficient_funds(self):
+        self.guest_1 = Guest("Loid", "Forger", 4.00, "Mixed Nuts", "Official Hige Dandism")
+        entry_fee = 5.00
+        expected = "Insufficient funds"
+        actual = self.guest_1.pay_entry_fee(entry_fee)
         self.assertEqual(expected, actual)
