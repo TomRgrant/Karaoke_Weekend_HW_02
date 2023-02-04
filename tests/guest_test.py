@@ -2,6 +2,7 @@ import unittest
 from src.guest import Guest
 from src.room import Room
 from src.song import Song
+from src.pub import Pub
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
@@ -47,3 +48,10 @@ class TestGuest(unittest.TestCase):
         expected = "Whoo!"
         actual = self.guest.fav_song_playing(self.room.current_song)
         self.assertEqual(expected, actual)
+
+    # def test_buy_drink(self):
+    #     self.guest = Guest("Loid", "Forger", 50.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
+    #     self.guest.reduce_wallet(pub.drinks["fizzy"]["price"])
+    #     expected = 47.00
+    #     actual = self.wallet
+    #     self.assertEqual(expected, actual)

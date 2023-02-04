@@ -9,3 +9,13 @@ class TestPub(unittest.TestCase):
                                     "cocktail": {"price": 7.00},
                                     "fizzy": {"price": 3.00},
                                     "wine": {"price": 6.00}} )
+
+    def test_has_name(self):
+        expected = "Boar Hat"
+        actual = self.pub.name
+        self.assertEqual(expected, actual)
+
+    def test_has_drinks(self):
+        expected = 4
+        actual = len(self.pub.drinks)
+        self.assertEqual(expected, actual)
