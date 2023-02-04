@@ -61,3 +61,14 @@ class TestRoom(unittest.TestCase):
         self.room.play_song(song_to_play_3)
         expected = 3
         actual = len(self.room.song_queue)
+
+    def test_whats_next_song_in_queue(self):
+        song_to_play_1 = {"title": 'Im Not A Vampire', "artist": 'Falling In Reverse'}
+        song_to_play_2 = {"title": "Blame It On Me", "artist": "George Ezra"}
+        song_to_play_3 = {"title": "Dance Monkey", "artist": "Tones And I"}
+        self.room.play_song(song_to_play_1)
+        self.room.play_song(song_to_play_2)
+        self.room.play_song(song_to_play_3)
+        expected = {"title": "Blame It On Me", "artist": "George Ezra"}
+        actual = self.room.next_song_in_queue()
+        self.assertEqual(expected, actual)
