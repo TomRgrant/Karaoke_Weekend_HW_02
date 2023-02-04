@@ -15,3 +15,6 @@ class Room:
 
     def play_song(self, song_to_play):
         self.current_song = song_to_play
+
+    def remove_guest_from_room(self, guest):
+        self.room_pop.remove(guest)

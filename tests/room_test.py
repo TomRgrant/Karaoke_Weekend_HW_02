@@ -43,3 +43,11 @@ class TestRoom(unittest.TestCase):
         expected = 'Im Not A Vampire', 'Falling In Reverse'
         actual = self.room.current_song
         self.assertEqual(expected, actual)
+
+    def test_remove_guest_from_room(self):
+        self.guest = Guest("Frank", "Joel", 20.00, "Blame It On Me", "George Ezra")
+        self.room.increase_room_pop(self.guest.first_name)
+        self.room.remove_guest_from_room(self.guest.first_name)
+        expected = 0
+        actual = len(self.room.room_pop)
+        self.assertEqual(expected, actual)
