@@ -59,3 +59,11 @@ class TestGuest(unittest.TestCase):
         expected = 47.00
         actual = self.guest.wallet
         self.assertEqual(expected, actual)
+
+    def test_pay_entry_fee(self):
+        self.guest = Guest("Loid", "Forger", 50.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
+        entry_fee = 5
+        self.guest.reduce_wallet(entry_fee)
+        expected = 45.00
+        actual = self.guest.wallet
+        self.assertEqual(expected, actual)
