@@ -92,3 +92,12 @@ class TestRoom(unittest.TestCase):
         expected = 10.00
         actual = self.guest.wallet
         self.assertEqual(expected, actual)
+
+    def test_guest_pay_tab__cant_afford(self):
+            self.guest = Guest("Paul", "Kerona", 20.00, {"title": "Stand By Me", "artist": "Oasis"})
+            self.room_1 = Room(9, 6, 3.00)
+            self.room.tab = 30.00
+            self.guest.reduce_wallet(self.room.tab)
+            expected = 20.00
+            actual = self.guest.wallet
+            self.assertEqual(expected, actual)
