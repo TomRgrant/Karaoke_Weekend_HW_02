@@ -67,3 +67,8 @@ class TestGuest(unittest.TestCase):
         expected = 45.00
         actual = self.guest.wallet
         self.assertEqual(expected, actual)
+
+    def test_guest_pay_tab(self):
+        self.room = Room(4, 11, 5)
+        self.room.tab = 30
+        self.guest = Guest("Loid", "Forger", 50.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})

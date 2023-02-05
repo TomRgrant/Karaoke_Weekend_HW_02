@@ -16,7 +16,9 @@ class Guest:
             return "Whoo!"
 
     def reduce_wallet(self, price):
-        self.wallet -= price
+        if self.wallet >= price:
+            self.wallet -= price
 
     def buy_drink(self, price):
         self.reduce_wallet(price)
+
