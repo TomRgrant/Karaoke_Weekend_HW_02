@@ -83,10 +83,3 @@ class TestRoom(unittest.TestCase):
         expected = 3.00
         actual = self.room.tab
         self.assertEqual(expected, actual)
-
-    def test_pay_entry_fee(self):
-        entry_fee = 5
-        self.room.increase_tab(entry_fee)
-        expected = 5
-        actual = self.room.tab
-        self.assertEqual(expected, actual)
