@@ -19,6 +19,4 @@ class Guest:
         if self.wallet >= price:
             self.wallet -= price
 
-    def buy_drink(self, price):
-        self.reduce_wallet(price)
 

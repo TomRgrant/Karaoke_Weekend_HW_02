@@ -30,16 +30,17 @@ class TestGuest(unittest.TestCase):
 
     def test_pay_entry_fee__sufficient_funds(self):
         entry_fee = 3.00
-        self.guest.pay_entry_fee(entry_fee)
+        self.guest.reduce_wallet(entry_fee)
         expected = 47.00
         actual = self.guest.wallet
         self.assertEqual(expected, actual)
 
     def test_pay_entry_fee__insufficient_funds(self):
-        self.guest_1 = Guest("Loid", "Forger", 4.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
+        self.guest = Guest("Loid", "Forger", 4.00, {"title": "Mixed Nuts", "artist": "Official Hige Dandism"})
         entry_fee = 5.00
-        expected = "Insufficient funds"
-        actual = self.guest_1.pay_entry_fee(entry_fee)
+        self.guest.reduce_wallet(entry_fee)
+        expected = 4.00
+        actual = self.guest.wallet
         self.assertEqual(expected, actual)
 
     def test_playing_favourite_song(self):
@@ -55,7 +56,7 @@ class TestGuest(unittest.TestCase):
                                     "cocktail": {"price": 7.00},
                                     "fizzy": {"price": 3.00},
                                     "wine": {"price": 6.00}} )
-        self.guest.buy_drink(self.pub.drinks["fizzy"]["price"])
+        self.guest.reduce_wallet(self.pub.drinks["fizzy"]["price"])
         expected = 47.00
         actual = self.guest.wallet
         self.assertEqual(expected, actual)
